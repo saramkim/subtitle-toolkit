@@ -1,19 +1,20 @@
 {
   "name": "subtitle-toolkit",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "split": "node split.js",
-    "split:sample": "node split.js sample",
-    "convert:vtt": "node convertVTT.js",
-    "start": "node -e \"console.log('Usage:\\n  npm run split <filename>\\n  npm run convert:vtt <filename>')\""
-  },
+  "version": "0.0.1",
+  "description": "CLI toolkit to help split, convert, and manage subtitle files for learning and translation",
+  "author": "saramkim",
+  "license": "MIT",
   "bin": {
     "subtitle-split": "./bin/split.js",
     "subtitle-convert": "./bin/convertVTT.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": [
+    "subtitle",
+    "cli",
+    "split",
+    "convert",
+    "vtt",
+    "translation",
+    "language-learning"
+  ]
 }
