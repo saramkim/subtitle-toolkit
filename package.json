@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "split:sample": "node split.js sample"
+    "split": "node split.js",
+    "split:sample": "node split.js sample",
+    "start": "echo 'Use npm run split:<name> to split subtitles.'"
   },
   "keywords": [],
   "author": "",
