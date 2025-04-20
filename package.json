@@ -5,7 +5,7 @@
   "scripts": {
     "split": "node split.js",
     "split:sample": "node split.js sample",
-    "start": "echo 'Use npm run split:<name> to split subtitles.'"
+    "start": "node -e \"console.log('Usage: npm run split <filename>')\""
   },
   "keywords": [],
   "author": "",
