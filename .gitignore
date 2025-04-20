@@ -1,4 +1,11 @@
 node_modules/
+dist/
+
+scripts/raw/
+scripts/translated/
+scripts/merged/
 scripts/chunks/
-*.log
-scripts/translated/sample/
+split-manifest.json
+
+.DS_Store
+.env
