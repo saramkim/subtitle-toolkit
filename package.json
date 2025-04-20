@@ -5,7 +5,8 @@
   "scripts": {
     "split": "node split.js",
     "split:sample": "node split.js sample",
-    "start": "node -e \"console.log('Usage: npm run split <filename>')\""
+    "convert:vtt": "node convertVTT.js",
+    "start": "node -e \"console.log('Usage:\\n  npm run split <filename>\\n  npm run convert:vtt <filename>')\""
   },
   "keywords": [],
   "author": "",
