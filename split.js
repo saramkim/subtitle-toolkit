@@ -4,7 +4,8 @@ const path = require("path");
 const CONFIG = {
   baseDir: "scripts",
   inputSubdir: "raw",
-  outputSubdir: "chunks",
+  chunkSubdir: "chunks",
+  translatedSubdir: "translated",
   encoding: "utf-8",
   chunkSize: 50000,
   extension: ".txt",
@@ -14,13 +15,40 @@ function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
 }
 
+function initTranslationFiles(baseName) {
+  const translatedDir = path.join(
+    CONFIG.baseDir,
+    CONFIG.translatedSubdir,
+    baseName
+  );
+  ensureDir(translatedDir);
+
+  const translationPath = path.join(translatedDir, `${baseName}.ko.txt`);
+  const summaryPath = path.join(translatedDir, `${baseName}.summary.md`);
+
+  if (!fs.existsSync(translationPath)) {
+    const translationTemplate = [
+      `# Translation for ${baseName}\n`,
+      `# Paste translated lines here (one per original line).\n`,
+    ].join("\n");
+    fs.writeFileSync(translationPath, translationTemplate, CONFIG.encoding);
+    console.log(`📝 Created: ${translationPath}`);
+  }
+
+  if (!fs.existsSync(summaryPath)) {
+    const summaryTemplate = `# Summary for ${baseName}`;
+    fs.writeFileSync(summaryPath, summaryTemplate, CONFIG.encoding);
+    console.log(`📝 Created: ${summaryPath}`);
+  }
+}
+
 function splitFile(baseName) {
   const inputFile = path.join(
     CONFIG.baseDir,
     CONFIG.inputSubdir,
     baseName + CONFIG.extension
   );
-  const outputDir = path.join(CONFIG.baseDir, CONFIG.outputSubdir, baseName);
+  const outputDir = path.join(CONFIG.baseDir, CONFIG.chunkSubdir, baseName);
 
   if (!fs.existsSync(inputFile)) {
     console.error(`[ERROR] Input file not found: ${inputFile}`);
@@ -53,6 +81,7 @@ function splitFile(baseName) {
     part++;
   }
 
+  initTranslationFiles(baseName);
   console.log(`\n✅ Done. ${part - 1} chunks saved in: ${outputDir}`);
 }
 
