@@ -8,6 +8,10 @@
     "convert:vtt": "node convertVTT.js",
     "start": "node -e \"console.log('Usage:\\n  npm run split <filename>\\n  npm run convert:vtt <filename>')\""
   },
+  "bin": {
+    "subtitle-split": "./bin/split.js",
+    "subtitle-convert": "./bin/convertVTT.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
