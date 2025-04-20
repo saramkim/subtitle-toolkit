@@ -5,8 +5,8 @@
   "author": "saramkim",
   "license": "MIT",
   "bin": {
-    "subtitle-split": "./bin/split.js",
-    "subtitle-convert": "./bin/convertVTT.js"
+    "sttk-split": "./bin/split.js",
+    "sttk-convert": "./bin/convertVTT.js"
   },
   "keywords": [
     "subtitle",
